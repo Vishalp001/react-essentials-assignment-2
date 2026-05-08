@@ -9,7 +9,7 @@ const App = () => {
   return (
     <TaskProvider>
       <div className='App'>
-        <div className='blueBg' />
+        <div className='bgColour' />
         <div className='appHeader'>
           <h1>Task Manager</h1>
           <main className='appMain'>
