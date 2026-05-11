@@ -129,7 +129,14 @@ body {
   border-color: #059669;
   box-shadow: 0 0 0 4px rgba(79, 70, 229, 0.15);
 }
-
+.formGroup p,
+.editing p {
+  text-align: left;
+}
+.formGroup small,
+.editing small {
+  color: #f53838;
+}
 button {
   transition: all 0.3s ease;
   cursor: pointer;
@@ -177,7 +184,7 @@ button {
 .filterButtons {
   display: flex;
   gap: 0.5rem;
-
+  margin-top: 16px;
   flex-wrap: wrap;
 }
 
@@ -257,12 +264,22 @@ button {
   text-align: left;
   color: #0f172a;
   flex: 1;
+  overflow-wrap: break-word;
+  word-break: break-word;
 }
 
 .taskDesc {
   margin-top: 0.5rem;
   text-align: left;
   color: #475569;
+  overflow-wrap: break-word;
+  word-break: break-word;
+}
+.showBtns {
+  cursor: pointer;
+  color: #13171d;
+  font-weight: medium;
+  text-decoration: underline;
 }
 
 .priorityBadge {
@@ -344,7 +361,10 @@ button {
 
 @media (max-width: 768px) {
   .appHeader {
-    padding: 1.5rem 1rem;
+    padding: 1.5rem 0rem;
+  }
+  .taskItem {
+    padding: 0.5rem;
   }
 
   .appHeader h1 {
@@ -353,7 +373,7 @@ button {
 
   .sideBar,
   .content {
-    padding: 1rem;
+    padding: 0.5rem;
     border-radius: 14px;
   }
 
@@ -401,6 +421,9 @@ button {
     padding: 0.7rem;
   }
 
+  .taskItem {
+    padding: 0.5rem;
+  }
   .taskHeader h3 {
     font-size: 1rem;
   }

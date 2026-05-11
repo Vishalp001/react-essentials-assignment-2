@@ -14,7 +14,6 @@ const FilterControl = () => {
         />
 
         <div className='filterSection'>
-          <label htmlFor=''>Filter:</label>
           <div className='filterButtons'>
             {['all', 'completed', 'pending'].map((filterOption) => {
               return (

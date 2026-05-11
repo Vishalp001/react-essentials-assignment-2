@@ -41,7 +41,14 @@ const TaskForm = () => {
           onChange={handleChange}
           required
           placeholder='Enter task title...'
+          maxLength={200}
         />
+        <p>
+          {formData.title.length}/200{' '}
+          {formData.title.length >= 200 && (
+            <small>Maximum 200 characters allowed</small>
+          )}
+        </p>
       </div>
 
       <div className='formGroup'>

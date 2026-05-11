@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import { useState } from 'react'
 import { useTaskContext } from '../context/TaskContext'
 
 const TaskItems = ({ task }) => {
@@ -41,6 +41,8 @@ const TaskItems = ({ task }) => {
     }
   }
 
+  const [showMore, setShowMore] = useState(false)
+
   if (isEditing) {
     return (
       <div className='taskItem editing'>
@@ -52,8 +54,15 @@ const TaskItems = ({ task }) => {
           type='text'
           name=''
           id=''
+          maxLength={200}
           placeholder='Task title...'
         />
+        <p>
+          {editData.title.length}/200{' '}
+          {editData.title.length >= 200 && (
+            <small>Maximum 200 characters allowed</small>
+          )}
+        </p>
 
         <textarea
           value={editData.description}
@@ -102,9 +111,28 @@ const TaskItems = ({ task }) => {
             {editData.priority}
           </span>
         </div>
-        {editData.description && (
+        {editData.description.length > 200 ? (
+          <p className='taskDesc'>
+            {showMore ? (
+              <>
+                {editData.description}{' '}
+                <span className='showBtns' onClick={() => setShowMore(false)}>
+                  show less
+                </span>
+              </>
+            ) : (
+              <>
+                {editData.description.slice(0, 200)}...
+                <span className='showBtns' onClick={() => setShowMore(true)}>
+                  show more
+                </span>
+              </>
+            )}
+          </p>
+        ) : (
           <p className='taskDesc'>{editData.description}</p>
         )}
+
         <div className='taskMeta'>
           <small>
             Created: {new Date(editData.createdAt).toLocaleDateString()}

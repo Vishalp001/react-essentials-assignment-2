@@ -129,7 +129,6 @@ export const TaskProvider = ({ children }) => {
     dispatch({ type: ACTIONS.DELETE_TASK, payload: taskId })
   }
   const editTask = (taskId, updates) => {
-    console.log(updates, 'updates')
     dispatch({ type: ACTIONS.EDIT_TASK, payload: { taskId, updates } })
   }
 
